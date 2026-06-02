@@ -504,6 +504,24 @@ body {
   border-bottom-color: var(--accent);
 }
 
+.resume-btn {
+  display: inline-block;
+  margin-top: 3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(200,169,126,0.4);
+  padding: 0.8rem 2.5rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resume-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 /* ===== FOOTER ===== */
 footer {
   padding: 2.5rem 4rem;
