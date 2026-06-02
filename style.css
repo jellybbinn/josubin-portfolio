@@ -175,9 +175,8 @@ body {
 
 .btn-img {
   display: block;
-  width: 498px;
-  height: 73px;
-  object-fit: contain;
+  height: auto;
+  max-height: 73px;
 }
 
 .btn-active  { display: none; }
