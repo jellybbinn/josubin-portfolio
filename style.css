@@ -180,15 +180,15 @@ body::before {
   display: inline-flex;
   align-items: center;
   height: 52px;
-  padding: 0 28px;
+  padding: 0 10px;
   border-radius: 100px;
   border: 2.5px solid var(--pink-mid);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 52pt;
   color: var(--pink-mid);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   white-space: nowrap;
   transition: background 0.2s, color 0.2s;
 }
