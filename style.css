@@ -176,7 +176,7 @@ body {
 .btn-img {
   display: block;
   height: auto;
-  max-height: 50px;
+  max-height: 60px;
 }
 
 .btn-active  { display: none; }
