@@ -70,14 +70,14 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 8px;
+  gap: 15px;
 }
 
 .nav-btn {
   display: inline-flex;
   align-items: center;
   height: 30px;
-  padding: 0 10px;
+  padding: 0 15px;
   border-radius: 100px;
   border: none;
   font-family: var(--font-serif);
