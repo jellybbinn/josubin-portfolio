@@ -35,6 +35,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* bg 중앙으로 갈수록 투명 — radial gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(8,6,8,0.72) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ===== NAV ===== */
 #nav {
   position: fixed;
@@ -75,8 +85,8 @@ body {
   height: 30px;
   padding: 0 10px;
   border-radius: 100px;
-  border: 1.5px solid var(--pink-mid);
-  font-family: var(--font-sans);
+  border: none;
+  font-family: var(--font-serif);
   font-size: 22.5px;
   font-weight: 700;
   letter-spacing: -0.04em;
