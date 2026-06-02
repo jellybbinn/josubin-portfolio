@@ -10,22 +10,31 @@ if (resumeBtn) {
   });
 }
 
-// Nav scroll state
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navBtns  = document.querySelectorAll('.nav-btn');
+const navH     = document.getElementById('nav')?.offsetHeight ?? 80;
 
-// Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      navBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('href') === '#' + entry.target.id);
+      });
     }
+  });
+}, { rootMargin: `-${navH}px 0px -60% 0px`, threshold: 0 });
+
+sections.forEach(s => observer.observe(s));
+
+// Fade-in on scroll
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.project-item, .exp-item, .about-grid').forEach(el => {
+document.querySelectorAll('.project-card, .exp-item, .about-grid').forEach(el => {
   el.classList.add('fade-in');
-  observer.observe(el);
+  fadeObserver.observe(el);
 });
