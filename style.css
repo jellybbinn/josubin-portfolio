@@ -27,24 +27,12 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
+  background: var(--bg) url('bg.png') center center / cover fixed;
   color: var(--text);
   font-family: var(--font-sans);
   font-weight: 300;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Grain overlay — fixed, covers whole page */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 300px 300px;
-  opacity: 0.055;
-  pointer-events: none;
-  z-index: 9000;
 }
 
 /* ===== NAV ===== */
@@ -68,20 +56,11 @@ body::before {
 
 .nav-logo-link { text-decoration: none; }
 
-.nav-logo-circle {
+.nav-logo-img {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  background: var(--pink-mid);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 9px;
-  font-weight: 600;
-  color: var(--pink-dark);
-  letter-spacing: 0.02em;
-  user-select: none;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -150,44 +129,13 @@ body::before {
 }
 
 .hero-title-wrap {
-  container-type: inline-size;
   width: 100%;
 }
 
-.hero-title {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  line-height: 0.88;
-  letter-spacing: -0.025em;
-  user-select: none;
-}
-
-.ht-line {
+.hero-title-img {
+  width: 100%;
+  height: auto;
   display: block;
-  font-style: italic;
-}
-
-.ht-line-1 {
-  font-size: 9.72cqw;   /* ~140px @ 1440px */
-  color: rgba(240, 216, 229, 0.55);
-  font-weight: 300;
-  text-align: left;
-}
-
-.ht-line-2 {
-  font-size: 13.89cqw;  /* ~200px @ 1440px */
-  color: var(--pink-mid);
-  font-weight: 400;
-  text-align: right;
-  margin-top: -0.04em;
-}
-
-.ht-line-3 {
-  font-size: 9.72cqw;   /* ~140px @ 1440px */
-  color: rgba(240, 216, 229, 0.55);
-  font-weight: 300;
-  text-align: left;
-  margin-top: 0.12em;
 }
 
 .hero-bottom {
