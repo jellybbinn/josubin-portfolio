@@ -323,162 +323,74 @@ body {
 }
 
 .projects-header {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
-.project-item {
+.cards-grid {
   display: grid;
-  grid-template-columns: 80px 1fr 380px;
-  gap: 3rem;
-  align-items: start;
-  padding: 4rem 0;
-  border-top: 1px solid var(--border);
-  transition: background 0.2s;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.project-item:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-.project-num {
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  color: var(--text-faint);
-  letter-spacing: 0.1em;
-}
-
-.project-badges {
-  display: flex;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.badge {
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border-radius: 2px;
-  font-weight: 500;
-}
-
-.badge-personal { background: rgba(200,169,126,0.12); color: var(--accent); }
-.badge-fashion   { background: rgba(180,140,200,0.12); color: #b48cc8; }
-.badge-work      { background: rgba(100,180,160,0.12); color: #64b4a0; }
-.badge-freelance { background: rgba(100,150,220,0.12); color: #6496dc; }
-
-.project-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 400;
-  color: var(--text);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.25rem;
-}
-
-.project-subtitle {
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
-
-.project-detail-grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.25rem;
-}
-
-.detail-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-faint);
+.project-card {
   display: block;
-  margin-bottom: 0.2rem;
-}
-
-.detail-val {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.project-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-}
-
-.project-note {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-faint);
-  margin-top: 0.5rem;
-  font-style: italic;
-}
-
-.project-scope {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.project-scope li {
-  font-size: 0.82rem;
-  color: var(--text-faint);
-  padding-left: 1rem;
-  position: relative;
-}
-
-.project-scope li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--text-faint);
-}
-
-.project-flow {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  background: var(--surface);
-  padding: 1rem 1.25rem;
-  border-radius: 4px;
-}
-
-.project-flow span {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.flow-arrow {
-  color: var(--accent) !important;
-}
-
-.project-image-area {
-  position: sticky;
-  top: 7rem;
-}
-
-.image-placeholder {
-  width: 100%;
-  aspect-ratio: 4/3;
+  text-decoration: none;
   background: var(--surface);
   border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.card-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-faint);
+}
+
+.card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.card-num {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.card-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 /* ===== EXPERIENCE ===== */
@@ -629,14 +541,8 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .project-item {
-    grid-template-columns: 60px 1fr;
-    grid-template-rows: auto auto;
-  }
-
-  .project-image-area {
-    grid-column: 1 / -1;
-    position: static;
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-grid {
@@ -658,16 +564,8 @@ footer {
 
   .hero-tags li { padding: 0 0.6rem; }
 
-  .project-item {
+  .cards-grid {
     grid-template-columns: 1fr;
-    padding: 2.5rem 0;
-    gap: 1.5rem;
-  }
-
-  .project-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
   }
 
   .exp-item {
