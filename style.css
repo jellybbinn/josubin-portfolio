@@ -280,7 +280,7 @@ body {
 .card-sub {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #c19fad;
