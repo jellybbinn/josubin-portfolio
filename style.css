@@ -28,8 +28,8 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    radial-gradient(ellipse 70% 70% at 50% 50%, rgba(8,6,8,0.72) 0%, transparent 100%),
-    linear-gradient(rgba(8,6,8,0.6), rgba(8,6,8,0.6)),
+    radial-gradient(ellipse 80% 80% at 50% 30%, rgba(8,6,8,0.6) 0%, transparent 100%),
+    linear-gradient(rgba(8,6,8,0.35), rgba(8,6,8,0.35)),
     url('bg.png') center center / cover fixed;
   background-color: var(--bg);
   color: var(--text);
