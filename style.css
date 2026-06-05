@@ -214,7 +214,7 @@ body {
 }
 
 .cards-row-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .project-card {
@@ -568,7 +568,7 @@ footer {
   .nav-btn { font-size: 16px; }
 
   .cards-row-4,
-  .cards-row-3 { grid-template-columns: repeat(2, 1fr); }
+  .cards-row-3 { grid-template-columns: repeat(2, 1fr) !important; }
 
   .about-grid {
     grid-template-columns: 1fr;
