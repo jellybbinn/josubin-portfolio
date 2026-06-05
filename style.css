@@ -246,13 +246,26 @@ body {
   flex: 1;
 }
 
+.card-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .card-num {
   font-family: var(--font-serif);
   font-size: 1.75rem;
   font-weight: 600;
   color: #f0d8e5;
-  display: inline;
-  margin-right: 0.2em;
+  flex-shrink: 0;
+  line-height: 1.2;
 }
 
 .card-title {
@@ -260,18 +273,18 @@ body {
   font-size: 1.75rem;
   font-weight: 600;
   color: #f0d8e5;
+  line-height: 1.2;
   margin-bottom: 0.4rem;
 }
 
 .card-sub {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #c19fad;
   line-height: 1.8;
-  margin-bottom: 0.75rem;
 }
 
 .vm-btn-wrap {
