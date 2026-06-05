@@ -28,7 +28,7 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    radial-gradient(ellipse 80% 80% at 50% 30%, rgba(8,6,8,0.6) 0%, transparent 100%),
+    radial-gradient(ellipse 80% 80% at 50% 30%, rgba(8,6,8,0.7) 0%, transparent 100%),
     linear-gradient(rgba(8,6,8,0.35), rgba(8,6,8,0.35)),
     url('bg.png') center center / cover fixed;
   background-color: var(--bg);
@@ -248,7 +248,7 @@ body {
 
 .card-num {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: #f0d8e5;
   display: inline;
@@ -257,7 +257,7 @@ body {
 
 .card-title {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: #f0d8e5;
   margin-bottom: 0.4rem;
