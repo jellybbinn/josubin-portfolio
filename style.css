@@ -248,19 +248,18 @@ body {
 
 .card-num {
   font-family: var(--font-serif);
-  font-size: 0.75rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text-faint);
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 0.3rem;
+  color: #f0d8e5;
+  display: inline;
+  margin-right: 0.2em;
 }
 
 .card-title {
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text);
+  color: #f0d8e5;
   margin-bottom: 0.4rem;
 }
 
@@ -270,7 +269,7 @@ body {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: #c19fad;
   line-height: 1.8;
   margin-bottom: 0.75rem;
 }
