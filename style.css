@@ -291,12 +291,12 @@ body {
 
 .card-sub {
   font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 1rem;
+  font-weight: 300;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #c19fad;
-  line-height: 1.8;
+  line-height: 1.4;
 }
 
 .vm-btn-wrap {
