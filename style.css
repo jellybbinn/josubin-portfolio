@@ -230,13 +230,17 @@ body {
 
 .card-image {
   width: 100%;
+  aspect-ratio: 338 / 473;
   margin-bottom: 1rem;
+  overflow: hidden;
 }
 
-.card-thumb {
+.card-thumb,
+.card-frame {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .card-body {
