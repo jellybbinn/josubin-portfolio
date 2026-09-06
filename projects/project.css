@@ -92,7 +92,7 @@ body {
 
 .back-btn {
   position: fixed;
-  bottom: 4rem;
+  bottom: 6rem;
   right: 2rem; /* overridden by JS */
   display: inline-block;
   text-decoration: none;
@@ -102,7 +102,7 @@ body {
 
 .back-img {
   display: block;
-  height: 30px;
+  height: 40px;
   width: auto;
 }
 
