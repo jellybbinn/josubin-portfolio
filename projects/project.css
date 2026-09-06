@@ -1,16 +1,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0a0a0a;
+  --bg: #080608;
   --bg-alt: #111111;
-  --surface: #161616;
-  --border: rgba(255,255,255,0.08);
+  --surface: rgba(255,255,255,0.03);
+  --border: rgba(193,159,173,0.2);
   --text: #e8e8e8;
-  --text-muted: #888;
-  --text-faint: #555;
+  --text-muted: rgba(240,216,229,0.55);
+  --text-faint: rgba(193,159,173,0.35);
+  --pink: #f0d8e5;
+  --pink-mid: #c19fad;
+  --pink-dark: #4b3f4b;
   --accent: #c8a97e;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Pretendard', -apple-system, system-ui, sans-serif;
+  --content-w: 1440px;
+  --nav-h: 80px;
 }
 
 body {
@@ -25,29 +30,64 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: calc(var(--nav-h) + 4rem) 2rem 4rem;
 }
 
-.back-btn {
+#nav {
   position: fixed;
-  top: 2rem;
-  left: 2.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: 25px 2rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s;
+  justify-content: space-between;
 }
 
-.back-btn:hover { color: var(--accent); }
+.nav-logo-link { text-decoration: none; }
 
-.back-btn::before {
-  content: '←';
-  font-size: 1rem;
+.nav-logo-img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 15px;
+  border-radius: 100px;
+  border: none;
+  font-family: var(--font-serif);
+  font-size: 17.5px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--pink-mid);
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.nav-btn:hover {
+  background: var(--pink-mid);
+  color: var(--pink-dark);
 }
 
 .coming-soon {
