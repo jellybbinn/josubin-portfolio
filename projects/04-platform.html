@@ -37,5 +37,18 @@
     <img src="../assets/back_기본.png" alt="BACK" class="back-img back-default" />
     <img src="../assets/back_오버.png" alt="BACK" class="back-img back-hover" />
   </a>
+
+  <script>
+    function alignBackBtn() {
+      var contact = document.querySelector('.nav-links li:last-child .nav-btn');
+      var backBtn = document.querySelector('.back-btn');
+      if (contact && backBtn) {
+        var rect = contact.getBoundingClientRect();
+        backBtn.style.right = (window.innerWidth - rect.right) + 'px';
+      }
+    }
+    window.addEventListener('load', alignBackBtn);
+    window.addEventListener('resize', alignBackBtn);
+  </script>
 </body>
 </html>

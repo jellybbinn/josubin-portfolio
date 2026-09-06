@@ -93,7 +93,7 @@ body {
 .back-btn {
   position: fixed;
   bottom: 4rem;
-  right: 2rem;
+  right: 2rem; /* overridden by JS */
   display: inline-block;
   text-decoration: none;
   line-height: 0;
