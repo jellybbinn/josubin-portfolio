@@ -90,21 +90,19 @@ body {
   color: var(--pink-dark);
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .back-btn {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
   display: inline-block;
   text-decoration: none;
   line-height: 0;
+  z-index: 200;
 }
 
 .back-img {
   display: block;
-  height: 30px;
+  height: auto;
   width: auto;
 }
 
