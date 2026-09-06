@@ -102,8 +102,8 @@ body {
 
 .back-img {
   display: block;
-  height: 40px;
-  width: auto;
+  height: 26px;
+  width: 160px;
 }
 
 .back-hover { display: none; }
