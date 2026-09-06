@@ -93,24 +93,29 @@ body {
 .back-btn {
   position: fixed;
   bottom: 6rem;
-  right: 2rem; /* overridden by JS */
-  display: inline-block;
-  text-decoration: none;
-  line-height: 0;
+  right: 2rem;
   z-index: 200;
-}
-
-.back-img {
-  display: block;
-  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 160px;
+  height: 36px;
+  border: 1px solid var(--pink-mid);
+  border-radius: 100px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--pink-mid);
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
 }
 
-.back-hover { display: none; }
-.back-default { display: block; }
-
-.back-btn:hover .back-default { display: none; }
-.back-btn:hover .back-hover   { display: block; }
+.back-btn:hover {
+  background: var(--pink-mid);
+  color: var(--pink-dark);
+}
 
 .coming-soon {
   text-align: center;
