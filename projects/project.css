@@ -98,12 +98,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 200px;
   height: 36px;
   border: 1px solid var(--pink-mid);
   border-radius: 100px;
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 400;
   letter-spacing: 0.2em;
   color: var(--pink-mid);
