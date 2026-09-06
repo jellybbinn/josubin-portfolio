@@ -90,6 +90,30 @@ body {
   color: var(--pink-dark);
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-btn {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.back-img {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+
+.back-hover { display: none; }
+.back-default { display: block; }
+
+.back-btn:hover .back-default { display: none; }
+.back-btn:hover .back-hover   { display: block; }
+
 .coming-soon {
   text-align: center;
 }
