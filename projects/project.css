@@ -93,12 +93,12 @@ body {
 .back-btn {
   position: fixed;
   bottom: 3rem;
-  right: 1.25rem;
+  right: calc(max(0px, (100vw - var(--content-w)) / 2) + 4rem);
   z-index: 200;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 130px;
+  width: 200px;
   height: 36px;
   border: 1px solid var(--pink-mid);
   border-radius: 100px;
