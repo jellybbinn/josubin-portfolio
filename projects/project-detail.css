@@ -29,17 +29,16 @@ body.detail-page {
   display: block;
 }
 
-/* Text floats over the first section only (approx 1/3 of image height) */
+/* Text floats over the first section, bottom-left */
 .detail-info {
   position: absolute;
-  top: 0;
+  bottom: 66.66%;
   left: 0;
   width: 45%;
-  height: 33.33%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 3rem 2.5rem;
+  justify-content: flex-end;
+  padding: 0 2.5rem 2.5rem;
   z-index: 2;
 }
 
@@ -91,8 +90,7 @@ body.detail-page {
 }
 
 .detail-overview {
-  border-top: 1px solid rgba(255,255,255,0.15);
-  padding-top: 1.5rem;
+  padding-top: 0;
 }
 
 .overview-label {
