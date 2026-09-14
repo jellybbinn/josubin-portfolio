@@ -7,9 +7,13 @@ body.detail-page {
 
 .project-detail {
   padding-top: var(--nav-h);
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-/* Hero: image full width, text absolutely on top */
+/* Hero: image with side margins, text over first section */
 .detail-hero {
   position: relative;
 }
@@ -25,16 +29,17 @@ body.detail-page {
   display: block;
 }
 
+/* Text floats over the first section only (approx 1/3 of image height) */
 .detail-info {
   position: absolute;
   top: 0;
   left: 0;
   width: 45%;
-  height: 100%;
+  height: 33.33%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem 3rem;
+  padding: 3rem 2.5rem;
   z-index: 2;
 }
 
