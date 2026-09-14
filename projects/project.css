@@ -92,8 +92,8 @@ body {
 
 .back-btn {
   position: fixed;
-  bottom: 6rem;
-  right: 2rem;
+  bottom: 3rem;
+  right: calc((100vw - var(--content-w)) / 2 + 2rem);
   z-index: 200;
   display: inline-flex;
   align-items: center;

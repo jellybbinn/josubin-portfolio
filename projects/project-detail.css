@@ -29,12 +29,13 @@ body.detail-page {
   display: block;
 }
 
-/* Text floats over the first section, bottom-left */
+/* Text over first section (top 1/3 of composite image), pinned to bottom */
 .detail-info {
   position: absolute;
-  bottom: 66.66%;
+  top: 0;
   left: 0;
   width: 45%;
+  height: 33.33%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
