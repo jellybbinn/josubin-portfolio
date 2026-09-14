@@ -29,18 +29,14 @@ body.detail-page {
   display: block;
 }
 
-/* Composite image is split into 4 equal bands (25% each).
-   Text sits in the lower-left of band 1, aligned with the ROUGE title. */
+/* The composite bakes in the "FASHION MAGAZINE / ROUGE" title at 6.2-9.3%
+   of image height, starting 7.85% in from the left. Anchor the overlay
+   directly below it so the two read as one block. */
 .detail-info {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 45%;
-  height: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 2rem 3rem 7.5%;
+  top: 12%;
+  left: 7.85%;
+  width: 38%;
   z-index: 2;
 }
 
@@ -114,8 +110,9 @@ body.detail-page {
 @media (max-width: 768px) {
   .detail-info {
     position: relative;
+    top: auto;
+    left: auto;
     width: 100%;
-    height: auto;
-    padding: 3rem 1.25rem 2rem;
+    padding: 2rem 1.25rem;
   }
 }
