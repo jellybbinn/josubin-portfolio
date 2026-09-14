@@ -29,14 +29,17 @@ body.detail-page {
   display: block;
 }
 
-/* The composite bakes in the "FASHION MAGAZINE / ROUGE" title at 6.2-9.3%
-   of image height, starting 7.85% in from the left. Anchor the overlay
-   directly below it so the two read as one block. */
+/* The composite bakes its own title into band 1, ending 20.8% of the image
+   WIDTH down from the top. Percentage margins resolve against the
+   container's width, so offsetting with margin-top keeps the overlay glued
+   below that title no matter how many bands the image has (i.e. however
+   tall it is). Using top:% instead would drift per page. */
 .detail-info {
   position: absolute;
-  top: 12%;
+  top: 0;
   left: 7.85%;
   width: 38%;
+  margin-top: 27%;
   z-index: 2;
 }
 
@@ -113,6 +116,7 @@ body.detail-page {
     top: auto;
     left: auto;
     width: 100%;
+    margin-top: 0;
     padding: 2rem 1.25rem;
   }
 }
