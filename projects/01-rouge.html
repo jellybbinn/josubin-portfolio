@@ -29,8 +29,8 @@
   </nav>
 
   <main class="project-detail">
-    <div class="detail-inner">
-      <section class="detail-hero">
+    <section class="detail-hero">
+      <div class="detail-inner">
         <div class="detail-info">
           <p class="detail-category">FASHION MAGAZINE</p>
           <h1 class="detail-title">ROUGE</h1>
@@ -49,10 +49,18 @@
             <p class="overview-text">'물랑루즈' 영화를 주제로 직접 의상 디자인하고, 제작한 의상 사진을 활용하여 패션 잡지 표지와 내지 레이아웃을 제작 하였으며, 패션 잡지의 네이밍을 '물랑루즈' 영화를 더욱 연상시키는 'ROUGE'로 하였습니다.</p>
           </div>
         </div>
-        <div class="detail-visual">
-          <img src="../assets/01_졸업작품.png" alt="ROUGE Fashion Magazine" class="detail-hero-img" />
+      </div>
+      <div class="detail-visual">
+        <img src="../assets/01_졸업작품.png" alt="ROUGE Fashion Magazine" class="detail-hero-img" />
+      </div>
+    </section>
+
+    <div class="detail-inner">
+      <div class="detail-gallery">
+        <div class="gallery-scroll" id="galleryScroll">
+          <img src="../assets/01_졸업작품.png" alt="ROUGE Magazine" class="gallery-img" />
         </div>
-      </section>
+      </div>
     </div>
   </main>
   <a href="../index.html#projects" class="back-btn">BACK</a>
@@ -68,6 +76,22 @@
     }
     window.addEventListener('load', alignBackBtn);
     window.addEventListener('resize', alignBackBtn);
+
+    // Drag-to-scroll gallery
+    var gallery = document.getElementById('galleryScroll');
+    var isDown = false, startX, scrollLeft;
+    gallery.addEventListener('mousedown', function(e) {
+      isDown = true;
+      startX = e.pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+    document.addEventListener('mouseup', function() { isDown = false; });
+    gallery.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - gallery.offsetLeft;
+      gallery.scrollLeft = scrollLeft - (x - startX);
+    });
   </script>
 </body>
 </html>

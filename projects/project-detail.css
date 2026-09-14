@@ -14,21 +14,27 @@ body.detail-page {
   max-width: var(--content-w);
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-/* Hero section: text left, image right */
+/* Hero section: image full background, text overlay on left */
 .detail-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
   min-height: calc(100vh - var(--nav-h));
   background-color: #6b1010;
+  overflow: hidden;
 }
 
 .detail-info {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 4rem 3rem 4rem 0;
+  max-width: 50%;
+  min-height: calc(100vh - var(--nav-h));
 }
 
 .detail-category {
@@ -95,9 +101,12 @@ body.detail-page {
   color: rgba(255,255,255,0.75);
 }
 
-/* Right side image — fills panel */
+/* Right side image — absolute, fills right half */
 .detail-visual {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
   height: 100%;
   overflow: hidden;
 }
@@ -108,13 +117,49 @@ body.detail-page {
   display: block;
   object-fit: cover;
   object-position: top center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Gallery below hero */
+.detail-gallery {
+  padding: 4rem 0;
+}
+
+.gallery-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  cursor: grab;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.gallery-scroll::-webkit-scrollbar { display: none; }
+
+.gallery-scroll:active { cursor: grabbing; }
+
+.gallery-img {
+  flex-shrink: 0;
+  height: 70vh;
+  width: auto;
+  display: block;
+  border-radius: 2px;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .detail-hero {
-    grid-template-columns: 1fr;
+  .detail-info {
+    max-width: 100%;
+    padding: 3rem 0 2rem;
+    min-height: auto;
+    justify-content: flex-end;
+    padding-bottom: 40vw;
   }
-  .detail-info { padding: 3rem 0 2rem; }
-  .detail-visual { height: 60vw; order: -1; }
+  .detail-visual { width: 100%; height: 50vw; top: auto; bottom: 0; }
+  .gallery-img { height: 50vw; }
 }
