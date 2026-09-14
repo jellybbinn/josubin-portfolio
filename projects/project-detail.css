@@ -121,34 +121,15 @@ body.detail-page {
   -webkit-user-drag: none;
 }
 
-/* Gallery below hero */
-.detail-gallery {
-  padding: 4rem 0;
+/* Full image below hero */
+.detail-full-img {
+  width: 100%;
 }
 
-.gallery-scroll {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  cursor: grab;
-  padding-bottom: 1rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.gallery-scroll::-webkit-scrollbar { display: none; }
-
-.gallery-scroll:active { cursor: grabbing; }
-
-.gallery-img {
-  flex-shrink: 0;
-  height: 70vh;
-  width: auto;
+.detail-full-img-el {
+  width: 100%;
+  height: auto;
   display: block;
-  border-radius: 2px;
-  user-select: none;
-  -webkit-user-drag: none;
-  pointer-events: none;
 }
 
 /* Responsive */

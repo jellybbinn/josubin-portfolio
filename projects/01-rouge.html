@@ -55,12 +55,8 @@
       </div>
     </section>
 
-    <div class="detail-inner">
-      <div class="detail-gallery">
-        <div class="gallery-scroll" id="galleryScroll">
-          <img src="../assets/01_졸업작품.png" alt="ROUGE Magazine" class="gallery-img" />
-        </div>
-      </div>
+    <div class="detail-full-img">
+      <img src="../assets/01_졸업작품.png" alt="ROUGE Magazine" class="detail-full-img-el" />
     </div>
   </main>
   <a href="../index.html#projects" class="back-btn">BACK</a>
@@ -76,22 +72,6 @@
     }
     window.addEventListener('load', alignBackBtn);
     window.addEventListener('resize', alignBackBtn);
-
-    // Drag-to-scroll gallery
-    var gallery = document.getElementById('galleryScroll');
-    var isDown = false, startX, scrollLeft;
-    gallery.addEventListener('mousedown', function(e) {
-      isDown = true;
-      startX = e.pageX - gallery.offsetLeft;
-      scrollLeft = gallery.scrollLeft;
-    });
-    document.addEventListener('mouseup', function() { isDown = false; });
-    gallery.addEventListener('mousemove', function(e) {
-      if (!isDown) return;
-      e.preventDefault();
-      var x = e.pageX - gallery.offsetLeft;
-      gallery.scrollLeft = scrollLeft - (x - startX);
-    });
   </script>
 </body>
 </html>
