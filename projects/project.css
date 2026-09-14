@@ -90,20 +90,22 @@ body {
   color: var(--pink-dark);
 }
 
+/* Sits in the gutter beside the image, so its width must stay under the
+   narrowest gutter we support or it starts overlapping the artwork. */
 .back-btn {
   position: fixed;
   bottom: 3rem;
-  right: calc(max(0px, (100vw - var(--content-w)) / 2) + 4rem);
+  right: 1.25rem;
   z-index: 200;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  width: 120px;
   height: 36px;
   border: 1px solid var(--pink-mid);
   border-radius: 100px;
   font-family: var(--font-serif);
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.2em;
   color: var(--pink-mid);
