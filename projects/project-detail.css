@@ -5,6 +5,7 @@ body.detail-page {
   min-height: 100vh;
 }
 
+/* Landing image carries its own copy, so the page is just the artwork. */
 .project-detail {
   padding-top: var(--nav-h);
   max-width: var(--content-w);
@@ -13,110 +14,15 @@ body.detail-page {
   padding-right: 2rem;
 }
 
-/* Hero: image with side margins, text over first section */
-.detail-hero {
-  position: relative;
-}
-
-.detail-visual {
-  width: 100%;
-  display: block;
-}
-
 .detail-hero-img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* The composite bakes its own title into band 1, ending 20.8% of the image
-   WIDTH down from the top. Percentage margins resolve against the
-   container's width, so offsetting with margin-top keeps the overlay glued
-   below that title no matter how many bands the image has (i.e. however
-   tall it is). Using top:% instead would drift per page. */
-.detail-info {
-  position: absolute;
-  top: 0;
-  left: 7.85%;
-  width: 38%;
-  margin-top: 27%;
-  z-index: 2;
-}
-
-.detail-category {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.6);
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-}
-
-.detail-title {
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 300;
-  color: #fff;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 2.5rem;
-}
-
-.detail-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 8rem;
-}
-
-.meta-row {
-  display: flex;
-  gap: 1.5rem;
-  align-items: baseline;
-}
-
-.meta-label {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.9);
-  min-width: 80px;
-}
-
-.meta-value {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.75);
-}
-
-.detail-overview {
-  padding-top: 0;
-}
-
-.overview-label {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 0.6rem;
-}
-
-.overview-text {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  line-height: 1.9;
-  color: rgba(255,255,255,0.75);
-}
-
 @media (max-width: 768px) {
-  .detail-info {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    margin-top: 0;
-    padding: 2rem 1.25rem;
+  .project-detail {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
