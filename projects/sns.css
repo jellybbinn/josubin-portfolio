@@ -1,0 +1,165 @@
+/* SNS Branding page — background artwork + sticky phone + feed grid + lightbox */
+
+.sns {
+  position: relative;
+  background: #fff url("../assets/03_SNS.jpg") no-repeat top center / 100% auto;
+}
+
+/* The artwork already carries the title and copy in its top band,
+   so the body starts below it (padding-top is a % of the width). */
+.sns-body {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  column-gap: 6%;
+  padding: 62% 6% 10% 8.5%;
+}
+
+/* ---------- Phone (sticky) ---------- */
+.sns-phone-col { position: relative; }
+
+.sns-phone {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  width: 100%;
+  aspect-ratio: 487 / 914;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.18));
+}
+
+.sns-phone-screen {
+  position: absolute;
+  left: 13.35%;
+  top: 7.66%;
+  width: 73.51%;
+  height: 85.01%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 11% / 5.2%;
+  background: #fff;
+}
+
+.sns-phone-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ---------- Feed grid ---------- */
+.sns-feed {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  align-content: start;
+}
+
+.sns-feed-item {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  background: #ddd;
+  cursor: zoom-in;
+}
+
+.sns-feed-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.sns-feed-item:hover img,
+.sns-feed-item:focus-visible img {
+  transform: scale(1.04);
+  filter: brightness(0.92);
+}
+
+.sns-feed-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Shown only until real feed images are added */
+.sns-feed-item.is-placeholder {
+  cursor: default;
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(45deg, #e6e2e4 0 10px, #eeeaec 10px 20px);
+  color: #9a8f95;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+}
+
+.sns-feed-note {
+  grid-column: 1 / -1;
+  margin-top: 0.75rem;
+  color: #8a7f86;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* ---------- Lightbox ---------- */
+.sns-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 6, 8, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.sns-lightbox.is-open { display: flex; }
+
+.sns-lightbox-img {
+  max-width: min(90vw, 1080px);
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.sns-lb-btn {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+
+.sns-lb-btn:hover,
+.sns-lb-btn:focus-visible { opacity: 1; }
+
+.sns-lb-close { top: 24px; right: 28px; font-size: 2.6rem; font-weight: 200; }
+.sns-lb-prev,
+.sns-lb-next { top: 50%; transform: translateY(-50%); font-size: 3rem; padding: 1rem; font-weight: 200; }
+.sns-lb-prev { left: 12px; }
+.sns-lb-next { right: 12px; }
+
+.sns-lb-count {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+body.sns-no-scroll { overflow: hidden; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .sns-body {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    padding: 62% 4% 12%;
+  }
+  .sns-phone-col { width: 62%; margin: 0 auto; }
+  .sns-phone { position: relative; top: 0; }
+  .sns-feed { gap: 3px; }
+  .sns-lb-prev, .sns-lb-next { font-size: 2.2rem; padding: 0.5rem; }
+}

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="project.css?v=9" />
   <link rel="stylesheet" href="project-detail.css?v=9" />
+  <link rel="stylesheet" href="sns.css?v=1" />
 </head>
 <body class="detail-page">
   <nav id="nav">
@@ -31,29 +32,116 @@
   </nav>
 
   <main class="project-detail">
-    <section class="detail-hero">
-      <div class="detail-visual">
-        <img src="../assets/03_sns.png" alt="SNS Branding" class="detail-hero-img" />
-      </div>
-      <div class="detail-info">
-        <div class="detail-meta">
-          <div class="meta-row">
-            <span class="meta-label">기여도</span>
-            <span class="meta-value">—</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-label">작업 기간</span>
-            <span class="meta-value">—</span>
+    <section class="sns" aria-label="SNS Branding">
+      <div class="sns-body">
+        <div class="sns-phone-col">
+          <div class="sns-phone">
+            <img src="../assets/Phone.jpg" alt="데이뷰의원 강남 인스타그램 프로필" class="sns-phone-screen" />
+            <img src="../assets/phone-frame.png" alt="" class="sns-phone-frame" />
           </div>
         </div>
-        <div class="detail-overview">
-          <h2 class="overview-label">프로젝트 개요</h2>
-          <p class="overview-text">—</p>
-        </div>
+        <div class="sns-feed" id="snsFeed"></div>
       </div>
     </section>
   </main>
 
+  <div class="sns-lightbox" id="snsLightbox" role="dialog" aria-modal="true" aria-label="피드 이미지 크게 보기">
+    <button type="button" class="sns-lb-btn sns-lb-close" id="snsLbClose" aria-label="닫기">&times;</button>
+    <button type="button" class="sns-lb-btn sns-lb-prev" id="snsLbPrev" aria-label="이전">&#8249;</button>
+    <img class="sns-lightbox-img" id="snsLbImg" alt="" />
+    <button type="button" class="sns-lb-btn sns-lb-next" id="snsLbNext" aria-label="다음">&#8250;</button>
+    <div class="sns-lb-count" id="snsLbCount"></div>
+  </div>
+
   <a href="../index.html#projects" class="back-btn">BACK</a>
+  <script>
+  // Feed images: put them in assets/sns-feed/ as 01.jpg, 02.jpg, 03.jpg ...
+  // (.png also works). They are picked up automatically in number order.
+  (function () {
+    const DIR = '../assets/sns-feed/';
+    const MAX = 80;
+    const feed = document.getElementById('snsFeed');
+    const lb = document.getElementById('snsLightbox');
+    const lbImg = document.getElementById('snsLbImg');
+    const lbCount = document.getElementById('snsLbCount');
+    let items = [];
+    let current = 0;
+
+    function probe(n) {
+      const name = String(n).padStart(2, '0');
+      const tryExt = (exts) => new Promise((resolve) => {
+        if (!exts.length) return resolve(null);
+        const img = new Image();
+        img.onload = () => resolve(DIR + name + '.' + exts[0]);
+        img.onerror = () => tryExt(exts.slice(1)).then(resolve);
+        img.src = DIR + name + '.' + exts[0];
+      });
+      return tryExt(['jpg', 'png', 'jpeg']);
+    }
+
+    function render() {
+      if (!items.length) {
+        for (let i = 1; i <= 9; i++) {
+          const ph = document.createElement('div');
+          ph.className = 'sns-feed-item is-placeholder';
+          ph.textContent = String(i).padStart(2, '0');
+          feed.appendChild(ph);
+        }
+        const note = document.createElement('p');
+        note.className = 'sns-feed-note';
+        note.textContent = 'assets/sns-feed/ 폴더에 01.jpg, 02.jpg … 를 올리면 여기에 표시됩니다.';
+        feed.appendChild(note);
+        return;
+      }
+      items.forEach((src, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sns-feed-item';
+        btn.setAttribute('aria-label', '피드 이미지 ' + (i + 1) + ' 크게 보기');
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'SNS 피드 ' + (i + 1);
+        img.loading = 'lazy';
+        btn.appendChild(img);
+        btn.addEventListener('click', () => open(i));
+        feed.appendChild(btn);
+      });
+    }
+
+    function show(i) {
+      current = (i + items.length) % items.length;
+      lbImg.src = items[current];
+      lbImg.alt = 'SNS 피드 ' + (current + 1);
+      lbCount.textContent = (current + 1) + ' / ' + items.length;
+    }
+    function open(i) {
+      show(i);
+      lb.classList.add('is-open');
+      document.body.classList.add('sns-no-scroll');
+      document.getElementById('snsLbClose').focus();
+    }
+    function close() {
+      lb.classList.remove('is-open');
+      document.body.classList.remove('sns-no-scroll');
+      lbImg.removeAttribute('src');
+    }
+
+    document.getElementById('snsLbClose').addEventListener('click', close);
+    document.getElementById('snsLbPrev').addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
+    document.getElementById('snsLbNext').addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(current - 1);
+      else if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    Promise.all(Array.from({ length: MAX }, (_, i) => probe(i + 1))).then((found) => {
+      for (const src of found) { if (!src) break; items.push(src); }
+      render();
+    });
+  })();
+  </script>
 </body>
 </html>
