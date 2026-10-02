@@ -2,12 +2,36 @@
 
 .sns {
   position: relative;
-  background: #fff url("../assets/03_SNS.jpg") no-repeat top center / 100% auto;
+  background: #000 url("../assets/03_SNS.jpg") no-repeat top center / 100% auto;
+}
+
+/* The artwork brightens to pure white down its length. This overlay sits
+   exactly on top of it (hence the matching aspect-ratio — the artwork is
+   sized 100% wide, so its height tracks the width, and a percentage height
+   here would resolve against the much taller section instead) and turns
+   that fade to black from roughly where the phone starts sticking. */
+.sns::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1516 / 8613;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 9%,
+    rgba(0, 0, 0, 0.55) 20%,
+    rgba(0, 0, 0, 0.9) 30%,
+    #000 42%
+  );
+  pointer-events: none;
 }
 
 /* The artwork already carries the title and copy in its top band,
    so the body starts below it (padding-top is a % of the width). */
 .sns-body {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 25% 1fr;
   column-gap: 6%;
