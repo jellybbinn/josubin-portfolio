@@ -8,6 +8,7 @@ body.detail-page {
 /* Landing image carries its own copy, so the page is just the artwork. */
 .project-detail {
   padding-top: var(--nav-h);
+  padding-bottom: 6rem;
   max-width: var(--content-w);
   margin: 0 auto;
   padding-left: 2rem;
