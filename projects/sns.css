@@ -49,40 +49,16 @@
   filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.18));
 }
 
-/* Clips the scrolling screen content to the frame's glass opening. */
 .sns-phone-screen {
   position: absolute;
   left: 13.35%;
   top: 7.66%;
   width: 73.51%;
   height: 85.01%;
-  overflow: hidden;
+  object-fit: cover;
+  object-position: top center;
   border-radius: 11% / 5.2%;
   background: #fff;
-}
-
-.sns-phone-scroll {
-  will-change: transform;
-}
-
-.sns-phone-header {
-  display: block;
-  width: 100%;
-}
-
-/* Mirrors the real feed below the captured profile header, so the phone
-   keeps scrolling past the end of the screenshot. */
-.sns-phone-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-}
-
-.sns-phone-grid img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
 }
 
 .sns-phone-frame {
