@@ -16,7 +16,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  aspect-ratio: 1516 / 8613;
+  /* The artwork is 1516x8613. The ratio here is deliberately a little
+     taller: at the exact ratio this box and the background image round
+     their fractional heights independently, and when the box lands a pixel
+     short the artwork's pure-white last row shows as a hairline across the
+     page. The extra length is past the point the gradient is already solid
+     black, so it costs nothing visually. */
+  aspect-ratio: 1516 / 8680;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 9%,
