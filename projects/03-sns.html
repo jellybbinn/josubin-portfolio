@@ -36,7 +36,12 @@
       <div class="sns-body">
         <div class="sns-phone-col">
           <div class="sns-phone">
-            <img src="../assets/Phone.jpg" alt="데이뷰의원 강남 인스타그램 프로필" class="sns-phone-screen" />
+            <div class="sns-phone-screen">
+              <div class="sns-phone-scroll" id="snsPhoneScroll">
+                <img src="../assets/phone-header.jpg" alt="데이뷰의원 강남 인스타그램 프로필" class="sns-phone-header" />
+                <div class="sns-phone-grid" id="snsPhoneGrid"></div>
+              </div>
+            </div>
             <img src="../assets/phone-frame.png" alt="" class="sns-phone-frame" />
           </div>
         </div>
@@ -137,9 +142,45 @@
       else if (e.key === 'ArrowRight') show(current + 1);
     });
 
+    // Drive the phone's screen content from page scroll, so the feed inside
+    // the handset travels while the handset itself stays pinned.
+    const phoneScroll = document.getElementById('snsPhoneScroll');
+    const phoneGrid = document.getElementById('snsPhoneGrid');
+    const screen = phoneScroll.parentElement;
+
+    function fillPhone() {
+      items.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.loading = i < 9 ? 'eager' : 'lazy';
+        phoneGrid.appendChild(img);
+      });
+    }
+
+    let ticking = false;
+    function syncPhone() {
+      ticking = false;
+      const travel = phoneScroll.scrollHeight - screen.clientHeight;
+      if (travel <= 0) return;
+      // Progress through the stretch where the phone is pinned beside the feed.
+      const r = feed.getBoundingClientRect();
+      const span = r.height - screen.getBoundingClientRect().height;
+      if (span <= 0) return;
+      const p = Math.min(Math.max(-r.top / span, 0), 1);
+      phoneScroll.style.transform = 'translate3d(0,' + -(p * travel).toFixed(1) + 'px,0)';
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(syncPhone); }
+    }
+
     Promise.all(Array.from({ length: MAX }, (_, i) => probe(i + 1))).then((found) => {
       for (const src of found) { if (!src) break; items.push(src); }
       render();
+      fillPhone();
+      syncPhone();
+      addEventListener('scroll', onScroll, { passive: true });
+      addEventListener('resize', onScroll);
     });
   })();
   </script>
