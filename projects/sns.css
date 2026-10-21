@@ -2,36 +2,12 @@
 
 .sns {
   position: relative;
-  background: #000 url("../assets/03_SNS.jpg") no-repeat top center / 100% auto;
+  background: #E7E3E4 url("../assets/03_SNS.jpg?v=20261021") no-repeat top center / 100% auto;
 }
 
-/* The artwork brightens to pure white down its length. This overlay sits
-   exactly on top of it (hence the matching aspect-ratio — the artwork is
-   sized 100% wide, so its height tracks the width, and a percentage height
-   here would resolve against the much taller section instead) and turns
-   that fade to black from roughly where the phone starts sticking. */
-.sns::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* The artwork is 1516x8613. The ratio here is deliberately a little
-     taller: at the exact ratio this box and the background image round
-     their fractional heights independently, and when the box lands a pixel
-     short the artwork's pure-white last row shows as a hairline across the
-     page. The extra length is past the point the gradient is already solid
-     black, so it costs nothing visually. */
-  aspect-ratio: 1516 / 8680;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 9%,
-    rgba(0, 0, 0, 0.55) 20%,
-    rgba(0, 0, 0, 0.9) 30%,
-    #000 42%
-  );
-  pointer-events: none;
-}
+/* New light artwork: no dark fade overlay. The section colour matches the
+   artwork's bottom tone so the feed area continues seamlessly below it. */
+
 
 /* The artwork already carries the title and copy in its top band,
    so the body starts below it (padding-top is a % of the width). */
@@ -41,7 +17,7 @@
   display: grid;
   grid-template-columns: 25% 1fr;
   column-gap: 6%;
-  padding: 62% 6% 10% 8.5%;
+  padding: 92% 6% 10% 8.5%;
 }
 
 /* ---------- Phone (sticky) ---------- */
@@ -186,7 +162,7 @@ body.sns-no-scroll { overflow: hidden; }
   .sns-body {
     grid-template-columns: 1fr;
     row-gap: 2rem;
-    padding: 62% 4% 12%;
+    padding: 92% 4% 12%;
   }
   .sns-phone-col { width: 62%; margin: 0 auto; }
   .sns-phone { position: relative; top: 0; }
