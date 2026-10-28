@@ -104,15 +104,6 @@ body {
   margin: 0 auto;
 }
 
-.section-num {
-  font-family: var(--font-serif);
-  font-size: 0.8rem;
-  color: var(--text-faint);
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .section-title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -369,6 +360,10 @@ body {
   border: 1px solid var(--border);
   padding: 0.3rem 0.75rem;
   border-radius: 2px;
+}
+
+.skills-block + .skills-block {
+  margin-top: 3rem;
 }
 
 .skills-title {
